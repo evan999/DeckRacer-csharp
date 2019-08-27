@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace DeckRacer
 {
-    class Program
+    class Game
     {
-        static void Main(string[] args)
-        {
-            Deck deck = new Deck();
-            Console.ReadLine();
-        }
     }
 }
