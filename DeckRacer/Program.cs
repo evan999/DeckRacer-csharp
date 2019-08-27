@@ -11,6 +11,8 @@ namespace DeckRacer
         static void Main(string[] args)
         {
             Deck deck = new Deck();
+            deck.Shuffle();
+           // deck.CheckForBadCards();
             Console.ReadLine();
         }
     }
