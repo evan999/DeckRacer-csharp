@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace DeckRacer
 {
-    class Game
+    class Player
     {
-        double position;
     }
 }

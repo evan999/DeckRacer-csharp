@@ -10,17 +10,17 @@ namespace YahtzeeGame
     {
         // public string name;
         public int value;
-        
+        Random random = new Random();
+
         public GameDie()
         {
             numberOfSides = 6;
-            random = new Random();
+            this.value = this.RollGameDie();
         }
 
         public GameDie(int numberOfSides)
         {
             this.numberOfSides = numberOfSides;
-            random = new Random();
         }
 
         public int RollGameDie()

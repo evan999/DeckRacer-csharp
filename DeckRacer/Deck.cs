@@ -37,17 +37,43 @@ namespace DeckRacer
         public IEnumerable<Card> Shuffle()
         {
             IOrderedEnumerable<Card> shuffled = cardDeck.OrderBy(Card => random.Next());
-            var firstTwoCards = shuffled.Take(2);
-            foreach (var card in firstTwoCards)
-            {
-                Console.WriteLine("First Two Cards: {0} {1}", card.Suit, card.Value);
-            }
-            foreach (var card in shuffled)
+            List<Card> shuffledDeck = shuffled.ToList();
+            return shuffledDeck;
+        }
+
+        public void ValidateCard(List<Card> shuffledDeck)
+        {
+            var firstTwoCards = shuffledDeck.Take(2);
+            var lastTwoCards = shuffledDeck.Skip(Math.Max(0, shuffledDeck.Count() - 2)).Take(2);
+            foreach (var card in shuffledDeck)
             {
                 Console.WriteLine("ShuffledCard: {0} {1}", card.Suit, card.Value);
             }
-            return shuffled;        
+
+            bool badCard = false;
+
+            foreach (var card in firstTwoCards)
+            {
+                if (card.Value == 0 || card.Value == 2 || card.Value == 6 || card.Value == 7)
+                {
+                    badCard = true;
+                    Shuffle();
+                }
+                Console.WriteLine("First Two Cards: {0} {1}", card.Suit, card.Value);
+            }
+
+            foreach (var card in lastTwoCards)
+            {
+                if (card.Value == 0 || card.Value == 2 || card.Value == 6 || card.Value == 7)
+                {
+                    badCard = true;
+                    Shuffle();
+                }
+                Console.WriteLine("Last Two Cards: {0} {1}", card.Suit, card.Value);
+            }
+            
         }
+
 
         /*
         public IEnumerable<Card> CheckForBadCards()

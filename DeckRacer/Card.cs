@@ -10,12 +10,13 @@ namespace DeckRacer
     {
         public int Suit { get; set; }
         public int Value { get; set; }
-        
+
+        Random random = new Random();
 
         public Card(int suit, int value)
         {
             Suit = suit;
-            Value = value ;
+            Value = value;
         }
 
         /*
